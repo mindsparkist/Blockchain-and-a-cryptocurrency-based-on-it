@@ -1,4 +1,4 @@
-let Block = require('./block');
+let Block = require('./blockchain/block');
 
 
 console.log(Block.mineBlock(Block.genesis(), 'blockData').toString());
