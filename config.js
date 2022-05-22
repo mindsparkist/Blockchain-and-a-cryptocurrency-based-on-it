@@ -1,4 +1,5 @@
 let DIFFICULTY = 4;
 let MINE_RATE = 3000;
+let INITIAL_BALANCE = 500;
 
-module.exports = { DIFFICULTY, MINE_RATE };
+module.exports = { DIFFICULTY, MINE_RATE, INITIAL_BALANCE };
