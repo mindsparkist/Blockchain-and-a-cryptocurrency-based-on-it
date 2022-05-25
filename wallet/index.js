@@ -1,9 +1,9 @@
-const chainUtil = require('./chain-util');
+const chainUtil = require('../chain-util');
 const { INITIAL_BALANCE } = require('../config');
 
 class Wallet {
     constructor() {
-        this.balance = 0;
+        this.balance = INITIAL_BALANCE;
         this.keyPair = chainUtil.generateKeyPair();
         this.publicKey = this.keyPair.getPublic().encode('hex');
     }

@@ -1,4 +1,5 @@
 const EC = require('elliptic').ec;
+const uuidV1 = require('uuid/v1');
 const ec = new EC('secp256k1');
 
 class chainUtil {
@@ -6,15 +7,9 @@ class chainUtil {
         return ec.genKeyPair();
     }
 
-    static id(publicKey) {
-        return Buffer.from(publicKey, 'hex').toString('hex');
-    }
-
-    static hash(data) {
-        return Buffer.from(SHA256(data)).toString('hex');
-    }
-
-    static verifySignature(publicKey, signature, dataHash) {
-        return ec.keyFromPublic(publicKey, 'hex').verify(dataHash, signature);
+    static id() {
+        return uuidV1();
     }
 }
+
+module.exports = chainUtil;
