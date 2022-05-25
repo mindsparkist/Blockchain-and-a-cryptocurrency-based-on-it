@@ -27,7 +27,18 @@ class Transaction {
             }
         ]);
 
+        Transaction.signTransaction(transaction, wallet);
+
         return transaction;
+    }
+
+    static signTransaction(transaction, wallet) {
+        transaction.input = {
+            timestamp: Date.now(),
+            amount: wallet.balance,
+            address: wallet.publicKey,
+            signature: wallet.sign(chainUtil.hash(transaction.outputs))
+        };
     }
 }
 
